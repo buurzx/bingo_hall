@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="col-xs-8 col-md-4 col-xs-offset-2 col-md-offset-4">
+    <div class="input-group">
+      <input id="game-url" class="form-control"
+             value="<%= current_game_url(@conn) %>" readonly>
+      <div class="input-group-btn">
+        <button id="copy-game-url" class="btn btn-primary"
+                data-clipboard-target="#game-url">
+          <i class="fa fa-paste"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="bingo-container"
+    data-game-name="<%= @game_name %>"
+    data-auth-token="<%= @auth_token %>"
+    data-ws-url="<%= ws_url() %>">
+
+  <div id="content">
+    <p id="error" class="alert alert-danger">{{ error }}</p>
+    <div class="row">
+      <div class="col-xs-8">
+        <div id="game">
+          <div id="squares">
+            <div class="row" v-for="rowOfSquares in squares">
+              <div class="square"
+                    v-for="square in rowOfSquares"
+                    v-bind:key="square.phrase"
+                    v-bind:style="squareStyle(square)"
+                    v-on:click="sendMark(square)">
+                <span class="phrase">{{ square.phrase }}</span>
+                <span class="points">{{ square.points }}</span>
+                <span class="name" v-if="square.marked_by">
+                  {{ square.marked_by.name }}
+                </span>
+              </div>
+            </div>
+          </div>
+          <transition name="game-over-appear">
+            <div id="game-over" v-if="winner">
+              {{ winner.name }} won!
+            </div>
+          </transition>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">Who's Playing</div>
+          <div class="panel-body">
+            <ul id="players" class="list-group">
+              <transition-group name="player-appear">
+                <li class="list-group-item"
+                    v-for="player in players"
+                    v-bind:key="player.name">
+                  <span class="player-color"
+                        v-bind:style="{background: player.color}"></span>
+                  <span class="player-name">{{ player.name }}</span>
+                  <span class="player-score">{{ player.score }}</span>
+                </li>
+              </transition>
+            </ul>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">What's Up?</div>
+          <div class="panel-body">
+            <ul id="messages" ref="messages" class="list-group">
+              <li class="list-group-item"
+                  v-for="(message, index) in messages"
+                  v-bind:key="index">
+                <span class="chat-message-name">{{ message.name }}:</span>
+                <span class="chat-message-body">{{ message.body }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <form id="chat-form" v-on:submit.prevent="sendChat">
+          <div class="input-group">
+            <input id="chat-input"
+                    type="text"
+                    class="form-control"
+                    v-model="chatMessage">
+              <span class="input-group-btn">
+                <button id="chat-button"
+                        class="btn btn-primary"
+                        v-bind:disabled="!chatMessage"
+                        v-on:click="sendChat">
+                  <i class="fa fa-comment"></i>
+                </button>
+              </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-8">
+    <div class="form-group">
+      <%= button("New Game", to: Routes.game_path(@conn, :new),
+                  method: :get,
+                  class: "btn btn-primary center-block") %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Internal server error</title>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="logo"></span>
+    </div>
+
+    <div class="header">
+      <p><a href="/">Back to main</a></p>
+    </div>
+
+    <div class="phx-hero">
+      <p>Sorry, something goes wrong.</p>
+      <p>We already know about this issue.</p>
+      <p>Thank you for understanding.</p>
+    </div>
+
+  </div> <!-- /container -->
+  <script src="/js/app.js"></script>
+</body>
+
+</html>

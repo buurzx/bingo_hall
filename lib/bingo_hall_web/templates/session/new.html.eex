@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2 text-center">
+    <h1>Welcome!</h1>
+    <h4>First up, we need your name and favorite color:</h4>
+    <%= form_for @conn, Routes.session_path(@conn, :create), [as: :player], fn f -> %>
+      <div class="form-group">
+        <%= text_input f, :name,
+                          placeholder: "Name",
+                          autofocus: true,
+                          required: true %>
+        <div id="color-selector">
+          <%= hidden_input f, :color, value: "#a4deff" %>
+          <span class="color selected" style="background-color: #a4deff"></span>
+          <span class="color" style="background-color: #f9cedf"></span>
+          <span class="color" style="background-color: #d3c5f1"></span>
+          <span class="color" style="background-color: #acc9f5"></span>
+          <span class="color" style="background-color: #aeeace"></span>
+          <span class="color" style="background-color: #96d7b9"></span>
+          <span class="color" style="background-color: #fce8bd"></span>
+          <span class="color" style="background-color: #fcd8ac"></span>
+        </div>
+      </div>
+      <%= submit "Play Bingo!", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

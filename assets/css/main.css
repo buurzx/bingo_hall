@@ -1,0 +1,451 @@
+
+:root {
+  --light-gray: #ebebeb;
+  --orange: #ee961b;
+  --purple: #8064A2;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(219, 223, 229);
+  background-image: url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238064a2' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.container {
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 25px;
+}
+
+/* Navigation
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+nav ul.nav {
+  margin-bottom: 1em;
+}
+
+nav ul.nav a {
+  font-size: 90%;
+}
+
+@media (min-width: 650px) {
+  nav ul.nav {
+    margin-bottom: 0;
+  }
+}
+
+/* Title Letters
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.letters {
+  margin-bottom: 20px;
+}
+
+.letters .letter {
+  font-size: 1.5em;
+  padding: 5px 8px;
+  font-weight: 800;
+  color: rgb(41, 41, 41);
+  background: #fff;
+  margin-right: -7px;
+  border: 1px solid #CCC;
+}
+
+.letters .letter:hover {
+  color: #fff;
+  background: rgb(41, 41, 41);
+}
+
+.letters .letter.inverse {
+  background: rgb(41, 41, 41);
+  color: #fff;
+}
+
+/* New Session Page
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+input#player_name {
+  border: 2px solid rgb(56, 202, 246);
+  padding: 4px 8px;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+}
+
+#color-selector {
+  display: inline-block;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+#color-selector .color {
+  height: 25px;
+  width: 25px;
+  float: left;
+  margin-right: 5px;
+}
+
+#color-selector .color:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+#color-selector .color.selected:before {
+  content: "\2714";
+  color: #4c4a4a;
+  top: 3px;
+  position: relative;
+}
+
+@media (min-width: 650px) {
+  input#player_name {
+    margin-bottom: 0;
+  }
+}
+
+/* Game Size Page
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.game-sizes label {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.radio-inline, .radio {
+  line-height: 1.0;
+}
+
+.grid-glyph {
+  margin: 0 auto;
+  width: 15vw;
+  height: 15vw;
+  max-width: 30vh;
+  max-height: 30vh;
+  margin-top: 1em;
+}
+
+.grid-glyph .row {
+  margin: 0;
+  display: flex;
+}
+
+.grid-glyph .box {
+  background: #4F819C;
+  margin: 3px;
+  flex: 1 0 auto;
+}
+
+.grid-glyph .box:after {
+  content: "";
+  float: left;
+  display: block;
+  padding-top: 100%;
+}
+
+/* Game Page
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#game-container {
+  margin-top: 30px;
+}
+
+#game-container .col-xs-8 {
+  padding-right: 0;
+}
+
+#content {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+
+input#game-url {
+  font-size: 90%;
+}
+
+#squares {
+  margin: 0 auto;
+  /* width: 95%; */
+}
+
+#squares .row {
+  margin: 0;
+  display: flex;
+}
+
+#squares .square {
+  color: #3A4145;
+  background: #fff;
+  border-radius: 12px;
+  margin: 4px;
+  flex: 1 0 auto;
+  position: relative;
+  word-wrap: break-word;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+}
+
+#squares .square:after {
+  content: "";
+  float: left;
+  display: block;
+  padding-top: 100%;
+}
+
+#squares .square:hover {
+  background: #F3F4D4;
+  cursor: pointer;
+}
+
+#squares .square .phrase {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: 600;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#squares .square .points {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 0.7em;
+}
+
+#squares .square .name {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  font-size: 0.7em;
+}
+
+@media (min-width: 650px) {
+  #squares .square .phrase {
+    font-size: 1.1em;
+  }
+
+  #squares .square .points {
+    font-size: 0.8em;
+    bottom: 5px;
+    right: 15px;
+  }
+
+  #squares .square .name {
+    font-size: 0.8em;
+    bottom: 5px;
+    left: 15px;
+  }
+}
+
+ul#players .player-name {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+ul#players .player-color {
+  margin-top: 3px;
+  height: 15px;
+  width: 15px;
+  float: left;
+  margin-right: 10px;
+  border-radius: 25%;
+}
+
+ul#players .player-score  {
+  font-size: 1em;
+  font-weight: bold;
+  margin-right: 5px;
+  vertical-align: middle;
+  float: right;
+}
+
+ul#messages {
+  min-height: 200px;
+  max-height: 200px;
+  overflow-y: scroll;
+  font-size: 0.8em;
+}
+
+@media (min-width: 650px) {
+  ul#messages {
+    min-height: 425px;
+    font-size: 1em;
+  }
+}
+
+ul#messages .chat-message-name {
+  font-weight: bold;
+}
+
+#game-over {
+  z-index: 11;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--orange);
+  text-transform: uppercase;
+  font-size: 5em;
+  font-weight: 600;
+}
+
+/* Vue Transitions
+
+   See: https://vuejs.org/v2/guide/transitions.html
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.game-over-appear-enter-active, .game-over-appear-leave-active {
+  transition: all .5s
+}
+.game-over-appear-enter, .game-over-appear-leave-to {
+  opacity: 0;
+}
+
+.player-appear-enter-active, .player-appear-leave-active {
+  transition: all 1s
+}
+.player-appear-enter, .player-appear-leave-active {
+  opacity: 0;
+}
+
+
+/* Alert
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.alert {
+  padding: 10px;
+  text-align: center;
+  border: none;
+  background: none;
+  font-size: 1.25em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Footer
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+footer {
+  color: #9fa1a1;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+/* Bootstrap Customizations
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.form-group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.panel-default > .panel-heading {
+  background: var(--purple);
+  color: white;
+}
+
+.panel .panel-body {
+  padding: 0;
+}
+
+.panel .list-group {
+  margin-bottom: 0em;
+}
+.panel .list-group .list-group-item {
+  border-width: 1px 0;
+}
+.panel .list-group-item:first-child {
+  border-top-width: 0;
+}
+.panel .list-group .list-group-item:last-child {
+  border-bottom: 0;
+}
+.panel .panel-heading + .list-group .list-group-item:first-child {
+  border-top-width: 0;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: var(--orange);
+  border-color: var(--orange);
+}
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #985f0d;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus {
+  background-color: #f0ad4e;
+  border-color: #f0ad4e;
+}
+
+.btn.btn-primary:disabled{
+  background-color: #8B8C8F;
+  border-color: #8B8C8F;
+}

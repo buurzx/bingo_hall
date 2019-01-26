@@ -1,0 +1,27 @@
+<div class="row" >
+  <div class="col-xs-8 col-xs-offset-2 text-center">
+    <h4>Select the game size:</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2 text-center">
+    <%= form_for @conn, Routes.game_path(@conn, :create), [as: :game], fn f -> %>
+      <div class="form-group game-sizes">
+        <label class="radio-inline">
+          <%= radio_button f, :size, 5, checked: true %>5 x 5
+          <%= grid_glyph(5) %>
+        </label>
+        <label class="radio-inline">
+          <%= radio_button f, :size, 4 %>4 x 4
+          <%= grid_glyph(4) %>
+        </label>
+        <label class="radio-inline">
+          <%= radio_button f, :size, 3 %>3 x 3
+          <%= grid_glyph(3) %>
+        </label>
+      </div>
+      <%= submit "Start Game", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
