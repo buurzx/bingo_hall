@@ -54,11 +54,10 @@
       </main>
 
       <footer>
-        <%# built with
+        built with
         <a href="http://elixir-lang.org/" target="_blank">Elixir</a> +
         <a href="http://www.phoenixframework.org/" target="_blank">Phoenix</a> +
-        <a href="https://vuejs.org/" target="_blank">Vue</a> %>
-        built by <b>buurz</b>
+        <a href="https://vuejs.org/" target="_blank">Vue</a>
       </footer>
 
     </div> <!-- /container -->

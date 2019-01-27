@@ -39,8 +39,8 @@ defmodule BingoHall.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:bingo, path: "../bingo"}
-      # {:bingo, git: "git@github.com:buurzx/bingo.git"}
+      {:bingo, github: "buurzx/bingo"}
+      # {:bingo, path: "../bingo"}
     ]
   end
 end
