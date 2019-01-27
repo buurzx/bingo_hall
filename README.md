@@ -10,4 +10,4 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ### What do the game look like?
 
-![Bingo Game](https://github.com/buurzx/bingo_hall/bingo.gif)
+![Bingo Game](https://github.com/buurzx/bingo_hall/blob/master/bingo.gif)
